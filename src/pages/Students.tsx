@@ -114,7 +114,7 @@ export default function Students() {
       total_sessions: Number(form.total_sessions), fee_amount: finalFee,
       payment_plan: form.payment_plan,
       discount_amount: discountVal, discount_percent: form.discount_percent,
-      roll_number: "TEMP", // trigger will auto-generate
+      roll_number: 1, // trigger will auto-generate
     });
     if (error) { toast.error("Failed to add student: " + error.message); console.error(error); }
     else {
