@@ -1,4 +1,6 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from '@supabase/supabase-js';
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -11,7 +13,7 @@ function isValidIndianPhone(phone: string): boolean {
   return /^(\+91)?[6-9]\d{9}$/.test(cleaned);
 }
 
-Deno.serve(async (req) => {
+serve(async (req: { method: string; json: () => any; }) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -42,8 +44,8 @@ Deno.serve(async (req) => {
     const validCourses = ["Basic", "Advanced", "Professional"];
     const safeCourse = validCourses.includes(course) ? course : "Basic";
 
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseUrl ="https://lhjjmucgmkseqpipwurd.supabase.co";
+    const serviceRoleKey ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxoamptdWNnbWtzZXFwaXB3dXJkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MjE4MjczNSwiZXhwIjoyMDg3NzU4NzM1fQ.H6Qo9YmWvIpuH_T1rOJ7wQurcc9FfQ7yqgMtYHjTcYo";
     const supabase = createClient(supabaseUrl, serviceRoleKey);
 
     // Check for duplicate phone in last 24 hours (rate limiting)

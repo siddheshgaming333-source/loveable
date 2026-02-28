@@ -1,12 +1,13 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from '@supabase/supabase-js';
+
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-serve(async (req) => {
+Deno.serve(async (req: { method: string; headers: { get: (arg0: string) => any; }; }) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
@@ -15,9 +16,7 @@ serve(async (req) => {
       return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
-    const supabase = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_ANON_KEY")!,
+    const supabase = createClient("https://lhjjmucgmkseqpipwurd.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxoamptdWNnbWtzZXFwaXB3dXJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxODI3MzUsImV4cCI6MjA4Nzc1ODczNX0.qtUNQx28t2mJOyxBp4x6At6KdGgswuYMGmXkSHNcKls",
       { global: { headers: { Authorization: authHeader } } }
     );
 
