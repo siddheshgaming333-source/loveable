@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Art Neelam Studio — Pastel Creative Palette */
+    --background: 30 40% 97%;
+    --foreground: 220 25% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 18%;
+
+    /* Rose coral primary */
+    --primary: 340 75% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 340 80% 94%;
+
+    /* Lavender secondary */
+    --secondary: 260 55% 88%;
+    --secondary-foreground: 260 40% 30%;
+
+    /* Mint accent */
+    --accent: 160 45% 85%;
+    --accent-foreground: 160 50% 25%;
+    --accent-vivid: 160 50% 50%;
+
+    /* Amber warm */
+    --warm: 38 90% 88%;
+    --warm-foreground: 38 60% 30%;
+    --warm-vivid: 38 85% 55%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 15% 50%;
+
+    --destructive: 0 70% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 340 75% 60%;
+
+    --radius: 0.75rem;
+
+    /* Kanban columns */
+    --kanban-new: 220 60% 92%;
+    --kanban-follow: 38 90% 90%;
+    --kanban-demo: 260 55% 90%;
+    --kanban-converted: 160 45% 88%;
+    --kanban-lost: 0 60% 92%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(340 75% 95%), hsl(260 55% 95%), hsl(160 45% 95%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(340 80% 98%));
+    --gradient-primary: linear-gradient(135deg, hsl(340 75% 60%), hsl(340 75% 50%));
+
+    /* Shadows */
+    --shadow-card: 0 2px 16px -4px hsl(340 75% 60% / 0.12), 0 1px 4px -1px hsl(220 25% 18% / 0.06);
+    --shadow-active: 0 8px 32px -8px hsl(340 75% 60% / 0.25);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 18%;
+    --sidebar-primary: 340 75% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 340 80% 94%;
+    --sidebar-accent-foreground: 340 55% 35%;
+    --sidebar-border: 220 20% 90%;
+    --sidebar-ring: 340 75% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-active {
+    box-shadow: var(--shadow-active);
+  }
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-body {
+    font-family: 'Nunito', sans-serif;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* PWA safe areas */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
