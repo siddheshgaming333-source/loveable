@@ -16,7 +16,7 @@ Deno.serve(async (req: { method: string; headers: { get: (arg0: string) => any; 
       return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
-    const supabase = createClient("https://lhjjmucgmkseqpipwurd.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxoamptdWNnbWtzZXFwaXB3dXJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxODI3MzUsImV4cCI6MjA4Nzc1ODczNX0.qtUNQx28t2mJOyxBp4x6At6KdGgswuYMGmXkSHNcKls",
+    const supabase = createClient("hhttps://loveable-art-project.jiobase.com","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxoamptdWNnbWtzZXFwaXB3dXJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxODI3MzUsImV4cCI6MjA4Nzc1ODczNX0.qtUNQx28t2mJOyxBp4x6At6KdGgswuYMGmXkSHNcKls",
       { global: { headers: { Authorization: authHeader } } }
     );
 

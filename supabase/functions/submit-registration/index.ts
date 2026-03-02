@@ -44,7 +44,7 @@ serve(async (req: { method: string; json: () => any; }) => {
     const validCourses = ["Basic", "Advanced", "Professional"];
     const safeCourse = validCourses.includes(course) ? course : "Basic";
 
-    const supabaseUrl ="https://lhjjmucgmkseqpipwurd.supabase.co";
+    const supabaseUrl ="https://loveable-art-project.jiobase.com";
     const serviceRoleKey ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxoamptdWNnbWtzZXFwaXB3dXJkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MjE4MjczNSwiZXhwIjoyMDg3NzU4NzM1fQ.H6Qo9YmWvIpuH_T1rOJ7wQurcc9FfQ7yqgMtYHjTcYo";
     const supabase = createClient(supabaseUrl, serviceRoleKey);
 
